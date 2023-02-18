@@ -73,7 +73,7 @@ class _CatchingGameScreenState extends State<CatchingGameScreen> {
               onTap: () {
                 game.character.onMoveLess();
               },
-              child: Container(
+              child: SizedBox(
                 height: 70,
                 width: 70,
                 child: Image.asset(
@@ -94,7 +94,7 @@ class _CatchingGameScreenState extends State<CatchingGameScreen> {
                 onTapUp: (_) {
                   game.character.x += 0;
                 },
-                child: Container(
+                child: SizedBox(
                   height: 70,
                   width: 70,
                   child: Image.asset('assets/images/left.png'),

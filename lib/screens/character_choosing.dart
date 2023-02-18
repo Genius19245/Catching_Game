@@ -1,4 +1,5 @@
 import 'package:catching_game/Game/catching_character.dart';
+import 'package:catching_game/screens/background_choosing.dart';
 import 'package:catching_game/screens/catching_instructions.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class _CharacterChoosingState extends State<CharacterChoosing> {
             children: [
               InkWell(
                 onTap: () {
-                  selection = PlayerCostume.blueBoy;
+                  selection = PlayerCostume.RedBoy;
                   Navigator.of(context).push(CatchingGameInstructions.route());
                 },
                 child: Image.asset(

@@ -1,4 +1,3 @@
-import 'package:catching_game/screens/catching_instructions.dart';
 import 'package:catching_game/screens/character_choosing.dart';
 import 'package:flutter/material.dart';
 

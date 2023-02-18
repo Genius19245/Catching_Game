@@ -1,3 +1,4 @@
+import 'package:catching_game/Game/utils/audio_manager.dart';
 import 'package:catching_game/screens/character_choosing.dart';
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
@@ -10,7 +11,7 @@ import 'food.dart';
 
 class CatchingGame extends FlameGame
     with HasDraggableComponents, HasCollisionDetection {
-  CatchingGame() {}
+  CatchingGame();
   late CatchingGameCharacter character;
   bool gamerestart = false;
 
@@ -18,6 +19,7 @@ class CatchingGame extends FlameGame
   String foodimg = 'apple.png';
   String foodimgs = 'apple.png';
   String playerimg = '';
+  String healthimg = 'heart10.png';
 
   final score = ValueNotifier<int>(0);
   final health = ValueNotifier<int>(10);
@@ -29,6 +31,9 @@ class CatchingGame extends FlameGame
 
   @override
   Future<void> onLoad() async {
+    AudioManager.init();
+    AudioManager.playMusic('synth.mp3', 'never_still.mp3');
+
     if (selection == PlayerCostume.blueBoy) {
       playerimg = 'blueboy.png';
     }
@@ -63,7 +68,7 @@ class CatchingGame extends FlameGame
     _updateHealthText();
     add(
       healthHud = SpriteComponent(
-          sprite: await loadSprite('heart.png'), size: Vector2(40, 40)),
+          sprite: await loadSprite(healthimg), size: Vector2(40, 40)),
     );
 
     super.onLoad();
@@ -79,6 +84,7 @@ class CatchingGame extends FlameGame
 
   @override
   Future<void> update(double dt) async {
+    changeHeartImage();
     healthHud
       ..y = _healthText.y
       ..x = _healthText.x - 70;
@@ -103,7 +109,9 @@ class CatchingGame extends FlameGame
     imageChanger();
 
     food.sprite = await loadSprite(foodimg);
-    print(foodimg);
+
+    healthHud.sprite = await loadSprite(healthimg);
+
     super.update(dt);
   }
 
@@ -148,6 +156,36 @@ class CatchingGame extends FlameGame
     }
     if (food.now == FoodTypes.coke) {
       foodimg = 'coke.png';
+    }
+  }
+
+  void changeHeartImage() {
+    if (health.value == 9) {
+      healthimg = 'heart10.png';
+    }
+    if (health.value == 8) {
+      healthimg = 'heart8.png';
+    }
+    if (health.value == 7) {
+      healthimg = 'heart8.png';
+    }
+    if (health.value == 6) {
+      healthimg = 'heart7.png';
+    }
+    if (health.value == 5) {
+      healthimg = 'heart7.png';
+    }
+    if (health.value == 4) {
+      healthimg = 'heart7.png';
+    }
+    if (health.value == 3) {
+      healthimg = 'heart6.png';
+    }
+    if (health.value == 2) {
+      healthimg = 'heart6.png';
+    }
+    if (health.value == 1) {
+      healthimg = 'heart5.png';
     }
   }
 }
