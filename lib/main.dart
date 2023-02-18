@@ -1,4 +1,5 @@
 import 'package:catching_game/screens/catching_instructions.dart';
+import 'package:catching_game/screens/character_choosing.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,8 @@ class CatchingGameAppScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: CatchingGameInstructions(),
+      debugShowCheckedModeBanner: false,
+      home: CharacterChoosing(),
     );
   }
 }

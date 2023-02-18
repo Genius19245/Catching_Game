@@ -1,3 +1,4 @@
+import 'package:catching_game/screens/character_choosing.dart';
 import 'package:flutter/material.dart';
 import '../Game/catching.dart';
 import 'catching_instructions.dart';
@@ -80,7 +81,7 @@ class GameOverMenu extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context)
-                        .pushReplacement(CatchingGameInstructions.route());
+                        .pushReplacement(CharacterChoosing.route());
                     game.overlays.remove('GameOverMenu');
                   },
                   child: Container(

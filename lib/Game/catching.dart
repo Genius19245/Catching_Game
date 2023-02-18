@@ -1,3 +1,4 @@
+import 'package:catching_game/screens/character_choosing.dart';
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
@@ -16,6 +17,7 @@ class CatchingGame extends FlameGame
   late CatchingGameBackground background;
   String foodimg = 'apple.png';
   String foodimgs = 'apple.png';
+  String playerimg = '';
 
   final score = ValueNotifier<int>(0);
   final health = ValueNotifier<int>(10);
@@ -27,12 +29,18 @@ class CatchingGame extends FlameGame
 
   @override
   Future<void> onLoad() async {
+    if (selection == PlayerCostume.blueBoy) {
+      playerimg = 'blueboy.png';
+    }
+    if (selection == PlayerCostume.RedBoy) {
+      playerimg = 'boy1.png';
+    }
     // AudioManager.init();z
     // await AudioManager.playMusic('synth.mp3', 'never_still.mp3');
     add(background =
         CatchingGameBackground(sprite: await loadSprite('background.png')));
     add(
-      character = CatchingGameCharacter(sprite: await loadSprite('boy1.png')),
+      character = CatchingGameCharacter(sprite: await loadSprite(playerimg)),
     );
     add(food = Food(sprite: await loadSprite('apple.png')));
 
@@ -87,6 +95,8 @@ class CatchingGame extends FlameGame
     }
     _healthText.position = Vector2(size.x - 26.0, 26);
     imageChanger();
+
+    character.sprite = await loadSprite(playerimg);
 
     food.sprite = await loadSprite(foodimg);
 

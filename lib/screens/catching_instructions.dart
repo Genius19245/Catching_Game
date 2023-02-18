@@ -23,12 +23,17 @@ class _CatchingGameInstructionsState extends State<CatchingGameInstructions> {
       appBar: AppBar(
         actions: [Image.asset('assets/images/stars.png')],
         leading: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Image.asset(
-            'assets/images/logo.png',
-            fit: BoxFit.scaleDown,
-          ),
-        ),
+            padding: const EdgeInsets.all(4.0),
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+                size: 34,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )),
         backgroundColor: const Color.fromRGBO(129, 191, 232, 1),
       ),
       body: Stack(

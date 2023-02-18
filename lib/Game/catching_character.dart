@@ -3,6 +3,8 @@ import 'package:flame/components.dart';
 
 import 'catching.dart';
 
+enum PlayerCostume { blueBoy, RedBoy }
+
 class CatchingGameCharacter extends SpriteComponent
     with HasGameRef<CatchingGame>, CollisionCallbacks {
   CatchingGameCharacter({super.sprite}) {
