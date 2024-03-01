@@ -35,7 +35,7 @@ class CatchingGame extends FlameGame
     AudioManager.playMusic('synth.mp3', 'never_still.mp3');
 
     if (selection == PlayerCostume.blueBoy) {
-      playerimg = 'blueboy.png';
+      playerimg = 'boy.png';
     }
     if (selection == PlayerCostume.RedBoy) {
       playerimg = 'boy1.png';
@@ -85,6 +85,7 @@ class CatchingGame extends FlameGame
   @override
   Future<void> update(double dt) async {
     changeHeartImage();
+
     healthHud
       ..y = _healthText.y
       ..x = _healthText.x - 70;
@@ -111,6 +112,8 @@ class CatchingGame extends FlameGame
     food.sprite = await loadSprite(foodimg);
 
     healthHud.sprite = await loadSprite(healthimg);
+
+    character.sprite = await loadSprite(playerimg);
 
     super.update(dt);
   }
@@ -160,32 +163,55 @@ class CatchingGame extends FlameGame
   }
 
   void changeHeartImage() {
+    if (health.value == 10) {
+      healthimg = 'heart10.png';
+      multiplier = 25;
+      playerimg = 'boy.png';
+    }
     if (health.value == 9) {
       healthimg = 'heart10.png';
+      multiplier = 24;
+      playerimg = 'boy.png';
     }
     if (health.value == 8) {
       healthimg = 'heart8.png';
+      multiplier = 23;
+      playerimg = 'boy.png';
     }
     if (health.value == 7) {
       healthimg = 'heart8.png';
+      multiplier = 22;
+      playerimg = 'boy2.png';
     }
     if (health.value == 6) {
       healthimg = 'heart7.png';
+      multiplier = 21;
+      playerimg = 'boy3.png';
     }
     if (health.value == 5) {
       healthimg = 'heart7.png';
+      multiplier = 20;
+      playerimg = 'boy3.png';
     }
     if (health.value == 4) {
       healthimg = 'heart7.png';
+      multiplier = 19;
+      playerimg = 'boy4.png';
     }
     if (health.value == 3) {
       healthimg = 'heart6.png';
+      multiplier = 18;
+      playerimg = 'boy4.png';
     }
     if (health.value == 2) {
       healthimg = 'heart6.png';
+      multiplier = 17;
+      playerimg = 'boy5.png';
     }
     if (health.value == 1) {
       healthimg = 'heart5.png';
+      multiplier = 16;
+      playerimg = 'boy5.png';
     }
   }
 }

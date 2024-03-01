@@ -60,7 +60,7 @@ class _CharacterChoosingState extends State<CharacterChoosing> {
                   Navigator.of(context).push(CatchingGameInstructions.route());
                 },
                 child: Image.asset(
-                  'assets/images/blueboy.png',
+                  'assets/images/boy.png',
                   height: 200,
                   width: 200,
                 ),

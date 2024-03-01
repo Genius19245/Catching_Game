@@ -3,6 +3,8 @@ import 'package:flame/components.dart';
 
 import 'catching.dart';
 
+int multiplier = 25;
+
 enum PlayerCostume { blueBoy, RedBoy }
 
 class CatchingGameCharacter extends SpriteComponent
@@ -35,12 +37,12 @@ class CatchingGameCharacter extends SpriteComponent
   }
 
   void onMoveMore() {
-    total = deltal * (gameRef.size.x / 2) * 25;
+    total = deltal * (gameRef.size.x / 2) * multiplier;
     x += total;
   }
 
   void onMoveLess() {
-    total = deltal * (gameRef.size.x / 2) * 25;
+    total = deltal * (gameRef.size.x / 2) * multiplier;
     x -= total;
   }
 }

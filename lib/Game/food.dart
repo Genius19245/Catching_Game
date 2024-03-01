@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:catching_game/Game/utils/audio_manager.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'catching.dart';
